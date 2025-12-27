@@ -3,7 +3,7 @@ $host = "localhost";
 $user = "root";
 $password = "YOUR_PASSWORD";   // NOT empty
 $database = "ink_and_solace";
-$port = 3306;
+$port = 3307;
 
 $conn = mysqli_connect($host, $user, $password, $database, $port);
 
