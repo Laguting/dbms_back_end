@@ -1,7 +1,7 @@
 <?php
 $host = "localhost";
 $user = "root";
-$password = "YOUR_PASSWORD";   // NOT empty
+$password = "";   // NOT empty
 $database = "ink_and_solace";
 $port = 3307;
 
