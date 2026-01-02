@@ -1,17 +1,21 @@
 <?php
-$host = "localhost";
-$user = "root";
-$password = ""; // default XAMPP
-$database = "ink_and_solace";
-$port = 3307;
+$host = 'localhost';
+$db   = 'ink_and_solace';
+$user = 'root';     // your MySQL username
+$pass = '';         // your MySQL password
+$charset = 'utf8mb4'
+$port = 3307; // default MySQL port
 
-// Connect to database
-$conn = mysqli_connect($host, $user, $password, $database, $port);
+$dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+$options = [
+    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+];
 
-// Check connection
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-} else {
-    echo "Database connected successfully!";
+try {
+    $pdo = new PDO($dsn, $user, $pass, $options);
+} catch (PDOException $e) {
+    echo "Database connection failed: " . $e->getMessage();
+    exit;
 }
 ?>
